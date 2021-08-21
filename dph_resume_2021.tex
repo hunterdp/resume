@@ -1,0 +1,301 @@
+%-------------------------
+% Resume in Latex
+% Author : David Hunter 
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+% ----- Custom commands -----
+
+\newcommand{\resumeHeading}[4]{
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & #4} \\
+%    \end{tabular*}
+  \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeEducationSubheading}[3]{
+  \item 
+    \vspace{-5pt}
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{{#1}} & #2 \\
+      {#3}
+    \end{tabular*}
+    \vspace{-20pt}
+  }
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}
+    \item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\Large#1} & \textbf{#2} \\
+      {\large #3} & {\large #4}
+    \end{tabular*}\vspace{-5pt}
+  }
+
+% ----- Multiple Positions Heading in the same company -----
+\newcommand{\resumeSubSubheading}[2]{
+    \vspace{-1pt}
+      \item
+      \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+        {\large #1} & {#2}
+    \end{tabular*}\vspace{-5pt}
+}
+\newcommand{\resumeJobDescription}[1][]{
+    \vspace{-1pt}\par{#1}
+}
+
+\newcommand{\resumeItem}[2]{\item{{\textbf{\small#1}}: {\small#2 \vspace{-1pt}}}}
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}: {#2 \vspace{-4pt}}}
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{description}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{description}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}\vspace{-10pt}
+
+% ------------------------------
+%-----  Text starts below  -----
+% ------------------------------
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{David Hunter} & Email : \href{mailto:dph@alumni.neu.edu}{dph@alumni.neu.edu}\\
+    \href{https://linkedin.com/in/hunterdp}{https://linkedin.com/in/hunterdp} & Mobile : +1-650-814-1346
+\end{tabular*}
+  
+%-----------EXPERIENCE-----------------
+\section{\textbf{Experience}}
+    \resumeSubHeadingListStart
+        \resumeSubheading
+          {Hewlett Packard Enterprise}
+          {San Jose, CA}
+          {Vice President Engineering, Hewlett Packard Labs}
+          {Nov 2019 - present}
+            \resumeItemListStart
+                \resumeItem{Management}{Team of program managers and strategist to support research programs \& projects.}
+                \resumeItem{Artifical Intelligence Lab}{Led the development of the Artificial Intelligence Lab shift to Trustworthy AI focus.}
+                \resumeItem{Governance Process}{Developed a formal process to better idetify potential disruptive research projects \& manage existing programs.}
+                \resumeItem{Information Repository}{Shifted from a manual documentation process to an automated and self-service BI based system.}
+                \resumeItem{Internal Advisory Board}{Established an internal business \& technical advisory board to increase executive level business unit awareness of research activities.}
+            \resumeItemListEnd
+
+        \resumeSubSubheading
+          {VP \& Chief Technologist, Software Defined Cloud Business Group}
+          {Mar 2014 - Oct 2019}
+            \resumeItemListStart
+                \resumeItem{Landscape Charts}{....}
+                \resumeItem{Pathfinder Inveestments}{Platform9}
+                \resumeItem{Acquisitions}{Simplivity, QuattroNetworks, Plexxi}
+                \resumeItem{Cloud Brokkering}{...}
+                \resumeItem{HyperConverged}{Drove the acquisition of Simplivity to}
+            \resumeItemListEnd
+
+        \resumeSubheading
+            {VMware}
+            {Palo Alto, CA}
+            {Chief Architect}
+            {Jan 2012 - Mar 2015}
+            \resumeItemListStart
+                \resumeItem{Management}{30 person Platform Security Engineering \& 500 person Global Quality Engineering teams.}
+                \resumeItem{Business Development}{Options for applying virtualization into the automotive, IoT, industrial and entertainment markets.}
+                \resumeItem{Secure Thin Hypervisor}{Bare metal hypervisor in support of Cloud Native Application development and secure management of servers.}
+                \resumeItem{Security Response Center}{engineers, tools \& processes to reduce likelihood of vulnerabilities in products and thier impact to customers.}
+                \resumeItem{CVSS for Virtualization}{Revised scoring system to take into account virtualization.  Resulted in more security PRs being fixed.}
+                \resumeItem{Security Score Cards}{Engineering wide, consistent model to measure individual products against a common set of security objectives.}
+                \resumeItem{Security Education/Training}{Impleted world-wide engineering formal \& informal training programs for 5,000 engineers.}
+                \resumeItem{Capital Savings}{Company wide infrastructure inventory and reservation system that eliminated \$5M/year capital expense.}
+                \resumeItem{Predictive Analytics}{Tools that improved testing estimations, eliminated duplicative \& identified testing gaps.}
+                \resumeItem{CQE Alignment}{Realigned System \& Functional QA to development teams that improved production, increase collaboration \& decrease duplication.}
+            \resumeItemListEnd
+  
+          \resumeSubSubheading
+            {Chief Technology Officer for World Wide Public Sector, Office of the CTO}
+            {Sep 2008 - Dec 2011}
+            \resumeItemListStart
+                \resumeItem{Business Growth}{Evangalism contributed to growing the US Federal business from \$50M to \$500M.}
+                \resumeItem{Cloud Computing}{Member of National Institute of Standards effort to develop SP-500 series.}
+                \resumeItem{IPv6}{Drove the prioritized implementation of IPv6 in products to meet US Federal requirements.}
+                \resumeItem{High Assurance Platform}{Moved the multi-level security domain system product from a customized hypervisor to a 
+                  commercial version of VMware Workstation, including federal security assurance requirements.}
+                \resumeItem{Secure Hypervisor}{Led the development of a prototype of a highly secure bare metal client hypervisor. Client platform leveraged
+                  functionalities, scalability and stability of ESX while preserving device compatibility of a legacy desktop system.}
+            \resumeItemListEnd
+\pagebreak   
+          \resumeSubSubheading 
+          {Director of Software Engineering}
+          {Nov 2004 - Sep 2008}
+            \resumeItemListStart
+                \resumeItem{Management}{70 person world-wide engineering organization that worked with OEMs and IHVs to support VMware products.}
+                \resumeItem{Partner Support}{Created a 3-tiered OEM \& ISV support model that increased coverage of partners.}
+                \resumeItem{Certification Suite}{Automated testing suite that increased qualified servers and storage arrays from 20
+                to over 2000 and 5 to 200 respectfully.}
+                \resumeItem{Hardware Compatability List}{Transitioned from a set of static documents to a real-time, database driven, public facing searchable web site
+                  that increased customer satisfaction and reduced workload of the documentation team.}
+                \resumeItem{Tier 1 Operating System}{Established VMware as a preferred o/s at all major system OEM that increase revenue for new systems or vSphere versions.}
+                \resumeItem{Security Certifications}{Sucessfully achieved Common Criteria EAL 4 and FIP-140-2 cryptographic library certifications for VMware products.}
+            \resumeItemListEnd
+  
+          \resumeSubheading
+            {SQU Systems}{Palo Alto, CA}
+            {Software Consultant}{Sep 2001 - Nov 2002}
+              \resumeJobDescription{
+                Early stage startup working on “Software Hot Swapping” technology to patch and replace sections of a running operating
+                systems.}
+
+          \resumeSubheading
+            {Home Business Magazine}{Mountain View, CA}
+            {Freelance Writer \& Technical Editor} {Apr 2001 – Jul 2004}
+            \resumeJobDescription {Developed a book on building home networks. As editor wrote \& reviewed articles on technology targeted 
+              towards the home business market. Magazine had a circulation of 65K newsstand copies and 22K paid subscribers.}
+
+          \resumeSubheading
+            {Compaq Computer Corporation}{Palo Alto, CA}
+            {Director Software Engineering, Advanced Technologies Group}{Jan 1998 - Sep 2001}
+            \resumeItemListStart
+                \resumeItem{Management}{20-person, multi-location engineering organization within the corporate research organization}
+                \resumeItem{NT-Atom}{Delivered two major and serveral minor releases of the NT-Atom Binary Instrumentation
+                        and Analysis Framework Application product.}
+                \resumeItem{Digital Continious Profiling Infrastructure}{Developed image manipulation library for Windows NT, both Intel and Alpha architectures.}
+                \resumeItem{Dynamic Optimizer}{A prototype dynamic optimization system for TRU64 Unix and Windows NT/Alpha}
+                \resumeItem{Post-link Static Optimizer Environment}{A Linux integrated performance \& analysis tool development environment for Linux.}
+                \resumeItem{Hardware Adaptable Images}{Dynamic binary modification of executables based upon available hardware.}
+            \resumeItemListEnd
+
+        \resumeSubheading
+          {Digital Equipment Corporation}{Palo Alto, CA}
+          {Senior Software Engineering Manager }{Jan 1990 - May 1998}
+               \resumeItemListStart
+               \resumeItem{Management}{Managed multiple groups of 40 to 80 software engineers located in Palo Alto, CA, Irvine, CA, Bellevue, WA, and Littleton, MA.}
+               \resumeItem{Database Compentency Center}{Managed a team of database \& performance software engineers that worked with 
+                            the major database vendors to achieve leadership TCP Benchmark results.}
+                \resumeItem{Windows NT Compentency Center}{Managed a team of software engineers embeded within Microsoft to support the development of applications
+                            on the Windows NT for Alpha platform.}
+            \resumeItemListEnd
+
+        \resumeSubSubheading
+          {Principal Software Engineer}{Mar 1983 - Jan 1986}
+          \resumeItemListStart
+            \resumeItem{Alpha Architecture}{Drove the adoption and implementation of adding byte and word operations back in the Alpha Architecture.}
+            \resumeItem{Fat Binaries}{Invented a method to allow for optimization and execution of applications for different generations 
+              of instruction set architectures.  Drove implementedon Windows NT/Alpha that resulted in up to 50\% application performance improvement.}
+            \resumeItem{EPA GIS System Integration Program}{Led a 10 person team in developing all technical deliverables for the RFP, Live Test Demonstration and contract
+              modifications for the successful \$140 million contract win.}
+            \resumeItem{CHAMPVA}{Lead software developer of the claims processing system for the Civilian Health \& Medical Program of the 
+              Department of Veterans Affairs.  Developed several device drivers, imaging scanning software and installation subsystem.}
+            \resumeItem{NASA Space Station}{Designed the Integration, Test, Verification and Execution and Avionics Development Facility computer system for 
+              RFP and subsequent award. Built  prototype interface module for communicating with the multitude of communication busses on the simulator. 
+              Code was written in a mixture of ADA, FORTRAN, C and VAX assembler.}
+          \resumeItemListEnd
+    
+        \resumeSubSubheading
+          {Hardware Engineer}{Jun 1983 - Aug 1986}
+            \resumeItemListStart
+                \resumeItem{Information Transport System Decision Support System}{Lead engineer that developed a prototype multimedia workstation. 
+                            Developed the calendar subsystem, security system (hardware and software), graphics subsystem and applications library.}
+                \resumeItem{VAXLab User Management System}{Software for automating the management of VAX/VMS systems.}
+                \resumeItem{Laboratory Information Management Systems}{Developed the software and API library set for graphing 
+                            data from various laboratory instruments in real-time.}
+            \resumeItemListEnd
+  
+        \resumeSubheading
+          {United States Navy}{Various}
+          {Naval Reserve Officer}{Sep 1985 - Dec 2016}
+          \resumeJobDescription{Led organizations from 25 to 1000+ personnel across multiple disciplines including surface operations, communications, 
+          computer technology, intelligence and security. Commanded 7 different units.  Served on active duty from Aug 1986 to Mar 1990, Dec 2002 to Nov 2004}
+            
+    \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------------
+\section{\textbf{Education}}
+\resumeSubHeadingListStart
+    \resumeEducationSubheading
+        {Joint Staff College at National Defense University}
+        {Jun 2004}
+        {Diploma (Master of Arts equivalent) in Operational Planning}
+        \resumeEducationSubheading
+        {United States Naval War College}
+        {Jun 1998}
+        {Diploma (Master of Arts equivalent) in Defense and Strategic Studies}
+        \resumeEducationSubheading
+        {Northeastern University}
+        {Jun 1986}
+        {Bachelor of Science in Electrical and Computer Engineering}
+    \resumeSubHeadingListEnd
+
+%----- Volunteer Efforts -----
+\section{\textbf{Volunteer Efforts}}
+%  \resumeSubHeadingListStart
+    \par
+     \textbf{Languages}{: Python, C++, SQL, Shell Scripting} \\
+      \textbf{Technologies}{: Linux, VMware, Docker, ELK, Grafana, pfSense, TrueNAS, AWS, GCE}
+%  \resumeSubHeadingListEnd
+
+%----- Patents -----
+%\section{Patents \& Published Papers}
+%    \resumeSubHeadingListStart
+%        \resumeItemListStart
+%            \resumeItem{DBCC}{...}
+%            \resumeItem{Windows NT}{...}
+%            \resumeItem{}{}
+%        \resumeItemListEnd
+%\resumeSubHeadingListEnd
+
+
+%----- Program & Technical Skills -----
+\section{\textbf{Skills}}
+%  \resumeSubHeadingListStart
+    \par
+     \textbf{Languages}{: Python, C++, SQL, Shell Scripting} \\
+      \textbf{Technologies}{: Linux, VMware, Docker, ELK, Grafana, pfSense, TrueNAS, AWS, GCE}
+%  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
