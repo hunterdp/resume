@@ -6,22 +6,30 @@
 
 \documentclass[letterpaper,11pt]{article}
 
-\usepackage{latexsym}
+% ----- Select the appropriate packages below ----- 
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
-\input{glyphtounicode}
+\usepackage{enumitem}                     % This package provides user control over the layout of the three basic list environments: enumerate, itemize and description.
+\usepackage[english]{babel}               % Change this if you want to support a different language
+\usepackage{tabularx}                     % Extends the tabular to add a column to fill out the whitespace b/t two columns
+\usepackage{fancyhdr}                     % For headers and footer custimization
+\usepackage{lastpage}                     % Allows referring to pages in the document.  Used for x of lastpage.
 
+% Uncomment if you need any of these optional packages.
+\usepackage[hidelinks]{hyperref}          % Use if you want to have hyperlinks.
+%\usepackage{latexsym}                    % Use if you need access to lasy fonts
+%\usepackage{marvosym}                    % Use if you need European currency symbols.
+%\usepackage{verbatim}                    % Allows printing exactly what is typed.
+
+\input{glyphtounicode}                    % Make sure the output is parsable by resume Automatic Tracking Systems
+
+% ----- Setup the page style options below ----- 
+\fancyhf{}                                % clear all header and footer fields
+\fancyfoot[C]{\thepage\ of \pageref{LastPage}}
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
+\thispagestyle{empty}
+
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -29,10 +37,8 @@
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
+\addtolength{\topmargin}{-0.5in}
 \addtolength{\textheight}{1.0in}
-
-\urlstyle{same}
 
 \raggedbottom
 \raggedright
@@ -40,58 +46,54 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+    \vspace{-4pt}
+    \scshape
+    \raggedright
+    \large
+  }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-% Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
+\pdfgentounicode=1                      % Ensure that generate pdf is machine readable/ATS parsable
 
 % ----- Custom commands -----
-
-\newcommand{\resumeHeading}[4]{
-    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{#3} & #4} \\
-%    \end{tabular*}
-  \end{tabular*}\vspace{-5pt}
-}
-
-\newcommand{\resumeEducationSubheading}[3]{
+\newcommand{\resumeEducationHeading}[3]{
   \item 
     \vspace{-5pt}
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{{#1}} & #2 \\
+      #1 & #2 \\
       {#3}
     \end{tabular*}
     \vspace{-20pt}
   }
 
-  \newcommand{\resumeVolunteerSubheading}[2]{
+  \newcommand{\resumeVolunteerHeading}[2]{
     \item 
       \vspace{-5pt}
       \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        #1 & #2
+        {#1} & #2
       \end{tabular*}
       \vspace{-30pt}
     }
-  
-\newcommand{\resumeSubheading}[4]{
-  %\vspace{-1pt}
+
+% ----- Company and a single position. -----
+\newcommand{\resumeCompanyHeading}[4]{
+  \vspace{-1pt}
     \item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{#2} \\
       {#3} & {#4}
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}\vspace{-10pt}
   }
 
 % ----- Multiple Positions Heading in the same company -----
-\newcommand{\resumeSubSubheading}[2]{
-    \vspace{-5pt}
+\newcommand{\resumeCompanyPositionHeading}[2]{
+    %\vspace{-5pt}
       \item
       \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
         {#1} & {#2}
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}\vspace{-10pt}
 }
+
+% ----- Puts a job description under a Company -----
 \newcommand{\resumeJobDescription}[1][]{
     \vspace{-1pt}\par{#1}
 }
@@ -100,8 +102,8 @@
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}: {#2 \vspace{-4pt}}}
 \renewcommand{\labelitemii}{$\circ$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{description}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{description}}
+\newcommand{\resumeHeadingListStart}{\begin{description}[leftmargin=*]}
+\newcommand{\resumeHeadingListEnd}{\end{description}}
 
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}}\vspace{-10pt}
@@ -109,43 +111,36 @@
 % ------------------------------
 %-----  Text starts below  -----
 % ------------------------------
-
 \begin{document}
 
-%----------HEADING-----------------
+%----------Heading-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
     \textbf{David Hunter} & Email : \href{mailto:dph@alumni.neu.edu}{dph@alumni.neu.edu}\\
     \href{https://linkedin.com/in/hunterdp}{https://linkedin.com/in/hunterdp} & Mobile : +1-650-814-1346
 \end{tabular*}
-  
+
 %-----------EXPERIENCE-----------------
 \section{\textbf{Experience}}
-    \resumeSubHeadingListStart
-        \resumeSubheading
+    \resumeHeadingListStart
+        \resumeCompanyHeading
           {Hewlett Packard Enterprise}
           {San Jose, CA}
-          {Vice President \& Chief Strategist, Hewlett Packard Labs}
-          {Nov 2019 - present}
+          {Vice President \& Chief Technologist, Hewlett Packard Labs}
+          {Mar 2015 - present}
             \resumeItemListStart
                 \resumeItem{Management}{Team of program managers and strategist to support research programs \& projects.}
-                \resumeItem{Play to Win Strategy}{Disruptive Development, High Performance Computing \& Trustworthy AI strategies.}
+                \resumeItem{Play to Win Strategy Development}{Disruptive Development, Aura Zero Trust Framework, High Performance Computing \& Trustworthy AI strategies.}
                 \resumeItem{Governance Process}{Stage-gate model to manage  disruptive research projects \& existing programs.}
                 \resumeItem{Information Repository}{Automated and self-service BI based system for tracking programs \& projects.}
-                \resumeItem{Internal Advisory Board}{Board of GM level business \& technical experts to advise on research activities.}
+                \resumeItem{Advisory Board}{Created an executive level business \& technical experts to advise on research activities.}
+                \resumeItem{Investments \& Acquisitions}{Drove the acquisition of Simplivity, Quattro Networks and Plexxi.  Created the partnership with Platform9.}
+                \resumeItem{Workloads as a Service}{Architecture that provided the ability for application workload execution brokering to the appropriate execution domain, across 
+                           physical hosts, virtual machines or containers.}
+                \resumeItem{HyperConverged}{Devised multiple architecture strategies to enter the HCI market, finalized by the acquisition of Simplivity.}
+                \resumeItem{Technical Career Path}{Chair of two division technical promotion boards.  Member of corporate Fellow/Senior Fellow promotion board.}
             \resumeItemListEnd
 
-        \resumeSubSubheading
-          {Vice President \& Chief Technologist, Software Defined Cloud Business Group}
-          {Mar 2014 - Oct 2019}
-            \resumeItemListStart
-                \resumeItem{Landscape Charts}{....}
-                \resumeItem{Pathfinder Investments}{Platform9}
-                \resumeItem{Acquisitions}{Simplivity, QuattroNetworks, Plexxi}
-                \resumeItem{Cloud Brokering}{...}
-                \resumeItem{HyperConverged}{Drove the acquisition of Simplivity to}
-            \resumeItemListEnd
-
-        \resumeSubheading
+        \resumeCompanyHeading
             {VMware}
             {Palo Alto, CA}
             {Chief Architect}
@@ -163,7 +158,7 @@
                 \resumeItem{CQE Alignment}{Realigned System \& Functional QA to development teams that improved production, increase collaboration \& decrease duplication.}
             \resumeItemListEnd
   
-          \resumeSubSubheading
+          \resumeCompanyPositionHeading
             {Chief Technology Officer for Worldwide Public Sector, Office of the CTO}
             {Sep 2008 - Dec 2011}
             \resumeItemListStart
@@ -175,8 +170,8 @@
                 \resumeItem{Secure Hypervisor}{Led the development of a prototype of a highly secure bare metal client hypervisor. Client platform leveraged
                   functionalities, scalability and stability of ESX while preserving device compatibility of a legacy desktop system.}
             \resumeItemListEnd
-\pagebreak   
-          \resumeSubSubheading 
+  
+          \resumeCompanyPositionHeading 
           {Director of Software Engineering}
           {Nov 2004 - Sep 2008}
             \resumeItemListStart
@@ -188,44 +183,47 @@
                 \resumeItem{Security Certifications}{Achieved Common Criteria EAL 4 and FIP-140-2 cryptographic certifications.}
             \resumeItemListEnd
   
-          \resumeSubheading
+          \resumeCompanyHeading
             {SQU Systems}{Palo Alto, CA}
             {Software Consultant}{Sep 2001 - Nov 2002}
               \resumeJobDescription{
                 Early stage startup working on “Software Hot Swapping” technology to patch and replace sections of a running operating
-                systems.}
+                systems.  Effort was moved off-shore and shutdown.}
 
-          \resumeSubheading
+          \resumeCompanyHeading
             {Home Business Magazine}{Mountain View, CA}
-            {Freelance Writer \& Technical Editor} {Apr 2001 – Jul 2004}
-            \resumeJobDescription {Developed a book on building home networks. As editor wrote \& reviewed articles on technology targeted 
+            {Freelance Writer \& Technical Editor} {Sep 2001 – Jul 2004}
+            \resumeJobDescription {Decided to developed a book on building home networks. As technical editor wrote \& reviewed articles on technology targeted 
               towards the home business market. Magazine had a circulation of 65K newsstand copies and 22K paid subscribers.}
 
-          \resumeSubheading
+          \resumeCompanyHeading
             {Compaq Computer Corporation}{Palo Alto, CA}
             {Director Software Engineering, Advanced Technologies Group}{Jan 1998 - Sep 2001}
             \resumeItemListStart
                 \resumeItem{Management}{20-person, multi-location engineering organization within the corporate research organization}
-                \resumeItem{NT-Atom}{Delivered two major and several minor releases of the NT-Atom Binary Instrumentation
-                        and Analysis Framework Application product.}
                 \resumeItem{Digital Continuous Profiling Infrastructure}{Developed image manipulation library for Windows NT, both Intel and Alpha architectures.}
                 \resumeItem{Dynamic Optimizer}{A prototype dynamic optimization system for TRU64 Unix and Windows NT/Alpha}
                 \resumeItem{Post-link Static Optimizer Environment}{A Linux integrated performance \& analysis tool development environment for Linux.}
                 \resumeItem{Hardware Adaptable Images}{Dynamic binary modification of executables based upon available hardware.}
             \resumeItemListEnd
 
-        \resumeSubheading
+        \resumeCompanyHeading
           {Digital Equipment Corporation}{Palo Alto, CA}
           {Senior Software Engineering Manager }{Jan 1990 - May 1998}
-               \resumeItemListStart
-               \resumeItem{Management}{Managed multiple groups of 40 to 80 software engineers located in Palo Alto, CA, Irvine, CA, Bellevue, WA, and Littleton, MA.}
-               \resumeItem{Database Competency Center}{Managed a team of database \& performance software engineers that worked with 
+                 \resumeItemListStart
+                 \resumeItem{Management}{Managed department consisting of 5 managers, 80 full-time and contract engineers, involved in supporting the migration and
+                                        co-engineering of applications to OpenVMS, TRU64 Unix and Windows NT for Alpha.}
+                 \resumeItem{NT-Atom}{Delivered two major and several minor releases of the NT-Atom Binary Instrumentation
+                             and Analysis Framework Application product.}
+                \resumeItem{Database Competency Center}{Managed a team of database \& performance software engineers that worked with 
                             the major database vendors to achieve leadership TCP Benchmark results.}
                 \resumeItem{Windows NT Competency Center}{Managed a team of software engineers embedded within Microsoft to support the development of applications
                             on the Windows NT for Alpha platform.}
+                \resumeItem{Patchwrks}{Research tool that constructed full instruction stream traces of the operating system and applications running on a processor 
+                            or multiprocessor system.}
             \resumeItemListEnd
 
-        \resumeSubSubheading
+        \resumeCompanyPositionHeading
           {Principal Software Engineer}{Mar 1983 - Jan 1986}
           \resumeItemListStart
             \resumeItem{Alpha Architecture}{Drove the adoption and implementation of adding byte and word operations back in the Alpha Architecture.}
@@ -240,7 +238,7 @@
               Code was written in a mixture of ADA, FORTRAN, C and VAX assembler.}
           \resumeItemListEnd
     
-        \resumeSubSubheading
+        \resumeCompanyPositionHeading
           {Hardware Engineer}{Jun 1983 - Aug 1986}
             \resumeItemListStart
                 \resumeItem{Information Transport System Decision Support System}{Lead engineer that developed a prototype multimedia workstation. 
@@ -250,58 +248,59 @@
                             data from various laboratory instruments in real-time.}
             \resumeItemListEnd
   
-        \resumeSubheading
+        \resumeCompanyHeading
           {United States Navy}{Various}
           {Naval Reserve Officer}{Sep 1985 - Dec 2016}
           \resumeJobDescription{Led organizations from 25 to 1000+ personnel across multiple disciplines including surface operations, communications, 
           computer technology, intelligence and security. Commanded 7 different units.  Served on active duty from Aug 1986 to Mar 1990, Dec 2002 to Nov 2004}
             
-    \resumeSubHeadingListEnd
+    \resumeHeadingListEnd
 
 %----- Volunteer Efforts -----
 \section{\textbf{Volunteer Efforts}}
-    \resumeSubHeadingListStart
-    \resumeVolunteerSubheading{Trustee, Naval War College Foundation}{2018 - present}
-    \resumeVolunteerSubheading{Northeastern University, College of Electrical \& Computer Engineering Advisory Board}{2006 - present}
-    \resumeVolunteerSubheading{National University, Cyber Security and Information Assurance Advisory Council}{2010 - 2013}
-    \resumeVolunteerSubheading{U.S. Secretary of the Navy, National Naval Reserve Forces Policy Board}{2005 - 2008}
-  \resumeSubHeadingListEnd
+    \resumeHeadingListStart
+    \resumeVolunteerHeading{Trustee, Naval War College Foundation}{2018 - present}
+    \resumeVolunteerHeading{VMware Partner Advisory Board}{2019 - present}
+    \resumeVolunteerHeading{Northeastern University, College of Electrical \& Computer Engineering Advisory Board}{2006 - present}
+    \resumeVolunteerHeading{National University, Cyber Security and Information Assurance Advisory Council}{2010 - 2013}
+    \resumeVolunteerHeading{U.S. Secretary of the Navy, National Naval Reserve Forces Policy Board}{2005 - 2008}
+  \resumeHeadingListEnd
   \vspace{5pt}
 %-----------EDUCATION-----------------
 \section{\textbf{Education}}
-\resumeSubHeadingListStart
-    \resumeEducationSubheading
+\resumeHeadingListStart
+    \resumeEducationHeading
         {Joint Staff College at National Defense University}
         {Jun 2004}
         {Diploma (Master of Arts equivalent) in Operational Planning}
-        \resumeEducationSubheading
+        \resumeEducationHeading
         {United States Naval War College}
         {Jun 1998}
         {Diploma (Master of Arts equivalent) in Defense and Strategic Studies}
-        \resumeEducationSubheading
+        \resumeEducationHeading
         {Northeastern University}
         {Jun 1986}
         {Bachelor of Science in Electrical and Computer Engineering}
-    \resumeSubHeadingListEnd
+    \resumeHeadingListEnd
 
 %----- Patents -----
 %\section{Patents \& Published Papers}
-%    \resumeSubHeadingListStart
+%    \resumeHeadingListStart
 %        \resumeItemListStart
-%            \resumeItem{DBCC}{...}
-%            \resumeItem{Windows NT}{...}
-%            \resumeItem{}{}
+%            \resumeItem{111111}{...}
+%            \resumeItem{22222}{...}
+%            \resumeItem{333333}{}
 %        \resumeItemListEnd
-%\resumeSubHeadingListEnd
+%\resumeHeadingListEnd
 
 
 %----- Program & Technical Skills -----
 %\section{\textbf{Skills}}
-%  \resumeSubHeadingListStart
+%  \resumeHeadingListStart
 %    \par
 %     \textbf{Languages}{: Python, C++, SQL, Shell Scripting} \\
 %      \textbf{Technologies}{: Linux, VMware, Docker, ELK, Grafana, pfSense, TrueNAS, AWS, GCE}
-%  \resumeSubHeadingListEnd
+%  \resumeHeadingListEnd
 
 
 %-------------------------------------------
