@@ -91,7 +91,7 @@
   \item 
     \vspace{-5pt}
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      #1 & #2 \\
+      \textbf{#1} & \textbf{#2} \\
       {#3}
     \end{tabular*}
     \vspace{-20pt}
@@ -108,13 +108,12 @@
     }
 
 \newcommand{\resumeItem}[2]{\item{{\textbf{\small#1}}: {\small#2 \vspace{-1pt}}}}
-%\newcommand{\resumeSubItem}[2]{\resumeItem{#1}: {#2 \vspace{-4pt}}}
 \renewcommand{\labelitemii}{$\circ$}
 
-\newcommand{\resumeHeadingListStart}{\begin{description}[leftmargin=*]}
+\newcommand{\resumeHeadingListStart}{\begin{description}[leftmargin=0cm]}
 \newcommand{\resumeHeadingListEnd}{\end{description}}
 
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}\vspace{-5pt}
 \newcommand{\resumeItemListEnd}{\end{itemize}}\vspace{-10pt}
 
 % ------------------------------
@@ -272,15 +271,12 @@
 
 %----- Patents -----
 \section{\textbf{Patents}}
-    \resumeHeadingListStart
         \resumeItemListStart
-            \resumeItem{US 6470493}{Computer method and apparatus for safe instrumentation of reverse executable program modules.}
-            \resumeItem{US 6115550}{Loader conditionally replacing a code sequence with a functionally-alike code sequence in an executable program intended for 
+            \resumeItem{US6470493}{Computer method and apparatus for safe instrumentation of reverse executable program modules.}
+            \resumeItem{US6115550}{Loader conditionally replacing a code sequence with a functionally-alike code sequence in an executable program intended for 
                         execution indifferent run-time environments.}
-            \resumeItem{US 6470493}{Computer method and apparatus for safe instrumentation of reverse executable program modules.}
-            \resumeItem{US 5920721}{Compiler generating functionally-alike code sequences in an executable program intended for execution in different run-time environments.}
+            \resumeItem{US5920721}{Compiler generating functionally-alike code sequences in an executable program intended for execution in different run-time environments.}
         \resumeItemListEnd
-\resumeHeadingListEnd
 
   %-----------EDUCATION-----------------
 \section{\textbf{Education}}
