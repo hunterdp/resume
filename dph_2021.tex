@@ -4,19 +4,18 @@
 % License : MIT
 %------------------------
 
-\documentclass[letterpaper,11pt]{article}
-%\documentclass[letterpaper,11pt]{moderncv}
-
+\documentclass[letterpaper,10pt, sans]{article}
 
 % ----- Select the appropriate packages below ----- 
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage{enumitem}                     % This package provides user control over the layout of the three basic list environments: enumerate, itemize and description.
-\usepackage[english]{babel}               % Change this if you want to support a different language
-\usepackage{tabularx}                     % Extends the tabular to add a column to fill out the whitespace b/t two columns
-\usepackage{fancyhdr}                     % For headers and footer custimization
-\usepackage{lastpage}                     % Allows referring to pages in the document.  Used for x of lastpage.
+\usepackage{enumitem}                       % This package provides user control over the layout of the three basic list environments: enumerate, itemize and description.
+\usepackage[english]{babel}                 % Change this if you want to support a different language
+\usepackage{tabulary}                       % 
+\usepackage{tabularx}                       % Extends the tabular to add a column to fill out the whitespace b/t two columns
+\usepackage{fancyhdr}                       % For headers and footer custimization
+\usepackage{lastpage}                       % Allows referring to pages in the document.  Used for x of lastpage.
 
 % Uncomment if you need any of these optional packages.
 \usepackage[hidelinks]{hyperref}          % Use if you want to have hyperlinks.
@@ -68,17 +67,17 @@
     \item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{#2} \\
-      {#3} & {#4}
-    \end{tabular*}\vspace{-10pt}
+      \textbf{#3} & \textbf{#4}
+    \end{tabular*}\vspace{-1pt}
   }
 
 % ----- Multiple Positions Heading in the same company -----
 \newcommand{\resumeCompanyPositionHeading}[2]{
-    %\vspace{-5pt}
+    \vspace{-1pt}
       \item
       \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
-        {#1} & {#2}
-    \end{tabular*}\vspace{-10pt}
+        \textbf{#1} & \textbf{#2}
+    \end{tabular*}\vspace{-1pt}
 }
 
 % ----- Puts a job description under a Company -----
@@ -89,7 +88,7 @@
 % ----- Listing for college or courses -----
 \newcommand{\resumeEducationHeading}[3]{
   \item 
-    \vspace{-5pt}
+    \vspace{-1pt}
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{#2} \\
       {#3}
@@ -100,44 +99,54 @@
   % ----- Used for volunteer or other type of activities -----
   \newcommand{\resumeVolunteerHeading}[2]{
     \item 
-      \vspace{-5pt}
+      \vspace{-1pt}
       \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
         {#1} & #2
       \end{tabular*}
-      \vspace{-30pt}
+      \vspace{-29pt}
     }
 
-\newcommand{\resumeItem}[2]{\item{{\textbf{\small#1}}: {\small#2 \vspace{-1pt}}}}
+% ----- Patents & Papers -----
+  \newcommand{\resumePatentsHeading}[2]{
+    \item 
+      \vspace{-1pt}
+      \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1, } & #2
+      \end{tabular*}
+      \vspace{-29pt}
+    }
+
+\newcommand{\resumeItem}[2]{\item{{\textbf{#1}}: {#2 \vspace{1pt}}}}
 \renewcommand{\labelitemii}{$\circ$}
 
 \newcommand{\resumeHeadingListStart}{\begin{description}[leftmargin=0cm]}
 \newcommand{\resumeHeadingListEnd}{\end{description}}
 
-\newcommand{\resumeItemListStart}{\begin{itemize}}\vspace{-5pt}
-\newcommand{\resumeItemListEnd}{\end{itemize}}\vspace{-10pt}
+\newcommand{\resumeItemListStart}{\begin{itemize}}\vspace{-1pt}
+\newcommand{\resumeItemListEnd}{\end{itemize}}\vspace{-1pt}
 
 % ------------------------------
-%-----  Text starts below  -----
+%-----  Start resume here  -----
 % ------------------------------
 \begin{document}
 
-%----------Heading-----------------
+%----- Header -----
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
     \textbf{David Hunter} & Email : \href{mailto:dph@alumni.neu.edu}{dph@alumni.neu.edu}\\
     \href{https://linkedin.com/in/hunterdp}{https://linkedin.com/in/hunterdp} & Mobile : +1-650-814-1346
 \end{tabular*}
 
-%-----------EXPERIENCE-----------------
+%----- Expereince -----
 \section{\textbf{Experience}}
     \resumeHeadingListStart
         \resumeCompanyHeading
           {Hewlett Packard Enterprise}
           {San Jose, CA}
-          {Vice President \& Chief Technologist, Hewlett Packard Labs}
+          {Vice President Engineering \& Chief Strategist, Hewlett Packard Labs}
           {Mar 2015 - present}
             \resumeItemListStart
                 \resumeItem{Management}{Team of program managers and strategist to support research programs \& projects.}
-                \resumeItem{Play to Win Strategy Development}{Disruptive Development, Aura Zero Trust Framework, High Performance Computing \& Trustworthy AI strategies.}
+                \resumeItem{Play to Win Strategy Development}{Disruptive Development Process, Aura Zero Trust Framework, High Performance Computing \& Trustworthy AI strategies.}
                 \resumeItem{Governance Process}{Stage-gate model to manage  disruptive research projects \& existing programs.}
                 \resumeItem{Information Repository}{Automated and self-service BI based system for tracking programs \& projects.}
                 \resumeItem{Advisory Board}{Created an executive level business \& technical experts to advise on research activities.}
@@ -187,7 +196,7 @@
                 \resumeItem{Hardware Compatibility List}{Transitioned from static documents to a public facing database driven website}
                 \resumeItem{OEM Preferred Operating System}{New versions of vSphere supported at release by all major system OEMs.}
                 \resumeItem{Certification Suite}{An automated testing suite that increased the number of supported servers and storage arrays
-                             to over 2000 \& 200 devices respectfully.}
+                             from 20 \& 5 to over 2000 \& 200 devices in 2 years.}
                 \resumeItem{Security Certifications}{Achieved Common Criteria EAL 4 and FIP-140-2 cryptographic certifications.}
             \resumeItemListEnd
   
@@ -211,7 +220,7 @@
 
         \resumeCompanyHeading
           {Digital Equipment Corporation}{Palo Alto, CA}
-          {Senior Software Engineering Manager, Alpha Migration Center}{Jan 1990 - May 1998}
+          {Senior Software Engineering Manager, Alpha Migration Center}{Jan 1992 - Jan 1998}
                  \resumeItemListStart
                  \resumeItem{Management}{Managed department consisting of 5 managers, 80 full-time and contract engineers, involved in supporting the migration and
                                         co-engineering of applications to OpenVMS, TRU64 Unix and Windows NT for Alpha.}
@@ -221,19 +230,19 @@
                             the major database vendors to achieve leadership TCP Benchmark results.}
                 \resumeItem{Windows NT Competency Center}{Managed a team of software engineers embedded within Microsoft to support the development of applications
                             on the Windows NT for Alpha platform.}
+                \resumeItem{Alpha Architecture}{Drove the adoption and implementation of adding byte and word instructions in the Alpha Architecture.}
+                \resumeItem{Fat Binaries}{Invented a method to allow for optimization and execution of applications for different generations 
+                            of instruction set architectures.  Implemented on Windows NT/Alpha that resulted in up to 50\% application performance improvement.}
                 \resumeItem{Patchwrks}{Research tool that constructed full instruction stream traces of the operating system and applications running on a processor 
                             or multiprocessor system.}
             \resumeItemListEnd
 
         \resumeCompanyPositionHeading
-          {Principal Software Engineer}{Mar 1983 - Jan 1986}
+          {Software Engineer, Government Systems Group}{Mar 1990 - Jan 1992}
           \resumeItemListStart
-            \resumeItem{Alpha Architecture}{Drove the adoption and implementation of adding byte and word instructions in the Alpha Architecture.}
-            \resumeItem{Fat Binaries}{Invented a method to allow for optimization and execution of applications for different generations 
-              of instruction set architectures.  Implemented on Windows NT/Alpha that resulted in up to 50\% application performance improvement.}
             \resumeItem{EPA GIS System Integration Program}{Led a 10-person team in developing all technical deliverables for the RFP, Live Test Demonstration and contract
               modifications for the successful \$140 million contract win.}
-            \resumeItem{CHAMPVA}{Lead software developer of the claims processing system for the Civilian Health \& Medical Program of the 
+            \resumeItem{CHAMPVA}{Lead software developer for \$4.5M the Civilian Health \& Medical Program claims processing system for the 
               Department of Veterans Affairs.  Developed several device drivers, imaging scanning software and installation subsystem.  Developed in C and assember.}
             \resumeItem{NASA Space Station}{Designed the Integration, Test, Verification and Execution and Avionics Development Facility computer system for 
               RFP and subsequent award. Built  prototype interface module for communicating with the multitude of communication busses on the simulator. 
@@ -254,34 +263,39 @@
           {United States Navy}{Various}
           {Naval Reserve Officer}{Sep 1985 - Dec 2016}
           \resumeJobDescription{Led organizations from 25 to 1000+ personnel across multiple disciplines including surface operations, communications, 
-          computer technology, intelligence and security. Commanded 7 different units.  Served on active duty from Aug 1986 to Mar 1990, Dec 2002 to Nov 2004}
+          computer technology, intelligence and security. Commanded 7 different units.  Served on active duty from Aug 1986 to Mar 1990 \& Dec 2002 to Nov 2004}
             
     \resumeHeadingListEnd
 
 %----- Volunteer Efforts -----
 \section{\textbf{Volunteer Efforts}}
     \resumeHeadingListStart
-    \resumeVolunteerHeading{Trustee, Naval War College Foundation}{2018 - present}
-    \resumeVolunteerHeading{VMware Partner Advisory Board}{2019 - present}
-    \resumeVolunteerHeading{Northeastern University, College of Electrical \& Computer Engineering Advisory Board}{2006 - present}
-    \resumeVolunteerHeading{National University, Cyber Security and Information Assurance Advisory Council}{2010 - 2013}
-    \resumeVolunteerHeading{U.S. Secretary of the Navy, National Naval Reserve Forces Policy Board}{2005 - 2008}
+        \resumeVolunteerHeading{Trustee, Naval War College Foundation}{2018 - present}
+        \resumeVolunteerHeading{VMware Partner Advisory Board}{2019 - present}
+        \resumeVolunteerHeading{Northeastern University, College of Electrical \& Computer Engineering Advisory Board}{2006 - present}
+        \resumeVolunteerHeading{National University, Cyber Security and Information Assurance Advisory Council}{2010 - 2013}
+        \resumeVolunteerHeading{U.S. Secretary of the Navy, National Naval Reserve Forces Policy Board}{2005 - 2008}
   \resumeHeadingListEnd
   \vspace{5pt}
 
 %----- Patents -----
 \section{\textbf{Patents}}
-        \resumeItemListStart
-            \resumeItem{US6470493}{Computer method and apparatus for safe instrumentation of reverse executable program modules.}
-            \resumeItem{US6115550}{Loader conditionally replacing a code sequence with a functionally-alike code sequence in an executable program intended for 
-                        execution indifferent run-time environments.}
-            \resumeItem{US5920721}{Compiler generating functionally-alike code sequences in an executable program intended for execution in different run-time environments.}
-        \resumeItemListEnd
+    \begin{tabular}{l p{475pt} l}
+        \textbf{US6470493: } & Computer method and apparatus for safe instrumentation of reverse executable program modules.
+    \end{tabular}
+
+    \begin{tabular}{l p{475pt} l}
+        \textbf{US6115550: } & Loader conditionally replacing a code sequence with a functionally-alike code sequence in an executable program intended for execution indifferent run-time environments.
+    \end{tabular}
+
+    \begin{tabular}{l p{475pt} l}
+        \textbf{US5920721: } & Compiler generating functionally-alike code sequences in an executable program intended for execution in different run-time environments.
+    \end{tabular}
 
   %-----------EDUCATION-----------------
 \section{\textbf{Education}}
-\resumeHeadingListStart
-    \resumeEducationHeading
+    \resumeHeadingListStart
+        \resumeEducationHeading
         {Joint Staff College at National Defense University}
         {Jun 2004}
         {Diploma (Master of Arts equivalent) in Operational Planning}
